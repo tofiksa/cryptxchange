@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# En liten Defi app for gøy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For å kjøre denne applikasjonen kreves det et par ting i forkant.
 
-## Available Scripts
+### Ganache
 
-In the project directory, you can run:
+[Ganache](https://www.trufflesuite.com/ganache) er et utviklerverktøy for å kjøre en lokal Ethereum eller Corda blockchainnettverk. Denne må lastes ned og kjøres i bakgrunnen.
 
-### `yarn start`
+![Ganachebilde](https://github.com/tofiksa/cryptxchange/blob/main/docs/Ganache.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Metamask
+Det kreves at man også har installert en kryptovalutalommebok som f.eks [Metamask](https://metamask.io/) for å kunne overføre crypto mellom lommebok og applikasjonen. Dette er en plugin som man installerer på din nettleser. Sørg for å koble deg opp på ditt lokale nettverk der Ganache kjører
+![Metamask](https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Trykk på logen øverst til høyre hjørnet deretter Innstillinger -> Nettverk -> Legg til nettverk
 
-### `yarn test`
+![Metamask_del2](https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask_del2.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### Truffle
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Truffle er tjenesten som binder react webappen med blockchainnettverket og legger eventuelle smartkontrakter i blockchainen. Konfigurasjon finnes i truffle-config.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`module.exports = {
+  networks: {
+    development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*" 
+    },
+  },
+  contracts_directory: './src/contracts/',
+  contracts_build_directory: './src/abis/',`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Smartkontraktene
 
-### `yarn eject`
+Smartkontraktene er skrevet i solidity og legges der man peker at de skal være i truffle-config.js filen. Etter at de kompileres med kommandoen `truffle compile` vil det bli generert abifiler der man definerer outputmappen. Dette er json filer som man kan bruke i webappen for å hente ut informasjon fra blockchainnettverket.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Tester
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Alle smartkontrakt testene kjøres med `truffle test`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installere og kjøre applikasjonen
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`yarn install` for å installere alle pakkene og `yarn start` for å kjøre applikasjonen
 
-## Learn More
+### Hva gjør applikasjonen
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Formålet med applikasjonen er å demonstrere såkalt [Yield farming](https://everipedia.org/wiki/lang_en/yield-farming), dvs, at man overfører cryptovalutaen DAI og får generert BrunostTokens(BOST) for hver DAI man legger inn. Etter man har lagt inn DAI så må man kjøre et script for å generere BrunostTokens(BOST) for hvor DAI man har lagt inn som en slags belønning.
+`truffle exec src/scripts/issue-tokens.js`
+Etter at man har refreshet siden (kan ta et par minutter), så vil man se at man har fått like mye antall BOST som det er blitt lagt inn av DAI.
