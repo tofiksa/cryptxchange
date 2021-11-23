@@ -10,18 +10,18 @@ For å kjøre denne applikasjonen kreves det et par ting i forkant.
 
 ### Metamask
 Det kreves at man også har installert en kryptovalutalommebok som f.eks [Metamask](https://metamask.io/) for å kunne overføre crypto mellom lommebok og applikasjonen. Dette er en plugin som man installerer på din nettleser. Sørg for å koble deg opp på ditt lokale nettverk der Ganache kjører
-<img src="https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask.png" width="100" height="200">
+<img src="https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask.png" width="250" height="350">
 
 Trykk på logen øverst til høyre hjørnet deretter Innstillinger -> Nettverk -> Legg til nettverk
 
-<img src="https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask_del2.png" width="100" height="200">
+<img src="https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask_del2.png" width="250" height="350">
 
 
 ### Truffle
 
 Truffle er tjenesten som binder react webappen med blockchainnettverket og legger eventuelle smartkontrakter i blockchainen. Konfigurasjon finnes i truffle-config.js
-
-`module.exports = {
+``` Javascript
+module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
@@ -30,7 +30,8 @@ Truffle er tjenesten som binder react webappen med blockchainnettverket og legge
     },
   },
   contracts_directory: './src/contracts/',
-  contracts_build_directory: './src/abis/',`
+  contracts_build_directory: './src/abis/',
+  ```
 
 ### Smartkontraktene
 
