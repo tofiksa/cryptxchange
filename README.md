@@ -10,7 +10,7 @@ For å kjøre denne applikasjonen kreves det et par ting i forkant.
 
 ### Metamask
 Det kreves at man også har installert en kryptovalutalommebok som f.eks [Metamask](https://metamask.io/) for å kunne overføre crypto mellom lommebok og applikasjonen. Dette er en plugin som man installerer på din nettleser. Sørg for å koble deg opp på ditt lokale nettverk der Ganache kjører
-![Metamask](https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask.png)
+![Metamask](https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask.png =250x250)
 
 Trykk på logen øverst til høyre hjørnet deretter Innstillinger -> Nettverk -> Legg til nettverk
 
