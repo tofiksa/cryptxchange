@@ -14,7 +14,7 @@ Det kreves at man også har installert en kryptovalutalommebok som f.eks [Metama
 
 Trykk på logen øverst til høyre hjørnet deretter Innstillinger -> Nettverk -> Legg til nettverk
 
-![Metamask_del2](https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask_del2.png)
+![Metamask_del2](https://github.com/tofiksa/cryptxchange/blob/main/docs/Metamask_del2.png =250x250)
 
 
 ### Truffle
