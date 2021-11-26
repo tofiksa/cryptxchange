@@ -33,17 +33,23 @@ module.exports = {
   contracts_build_directory: './src/abis/',
   ```
 
-### Smartkontraktene
-
-Smartkontraktene er skrevet i solidity og legges der man peker at de skal være i truffle-config.js filen. Etter at de kompileres med kommandoen `truffle compile` vil det bli generert abifiler der man definerer outputmappen. Dette er json filer som man kan bruke i webappen for å hente ut informasjon fra blockchainnettverket.
 
 ### Tester
 
 Alle smartkontrakt testene kjøres med `truffle test`
 
-### Installere og kjøre applikasjonen
+### Installere node_modules
 
-`yarn install` for å installere alle pakkene og `yarn start` for å kjøre applikasjonen
+`yarn install` for å installere alle pakkene.
+
+### Smartkontraktene
+
+Smartkontraktene er skrevet i solidity og legges der man peker at de skal være i truffle-config.js filen. Etter at de kompileres med kommandoen `truffle compile` vil det bli generert abifiler der man definerer outputmappen. Dette er json filer som man kan bruke i webappen for å hente ut informasjon fra blockchainnettverket. Deretter må man kjøre kommandoen `truffle migrate --reset` for å deploye smartkontraktene på den lokale blockchainnettverket.
+
+### yarn start
+
+Når smartkontraktene er kompilert og abi-filene er generert så kan du starte applikasjonen slik `yarn start` eller `npm start`
+
 
 ### Hva gjør applikasjonen
 
